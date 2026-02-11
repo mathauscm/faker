@@ -30,10 +30,24 @@ export interface PersonData {
   emailDomains: string[];
 }
 
+export interface EmojiData {
+  smileys: string[];
+  gestures: string[];
+  hearts: string[];
+  animals: string[];
+  food: string[];
+  nature: string[];
+  objects: string[];
+  flags: string[];
+  activities: string[];
+  travel: string[];
+}
+
 export interface TextData {
   lorem: LoremData;
   marketing: MarketingData;
   support: SupportData;
   whatsapp: WhatsappData;
   person: PersonData;
+  emoji: EmojiData;
 }

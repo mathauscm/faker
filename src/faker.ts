@@ -5,6 +5,7 @@ import { createMarketing, type MarketingModule } from './text/marketing/marketin
 import { createSupport, type SupportModule } from './text/support/support.generator.js';
 import { createWhatsapp, type WhatsappModule } from './text/whatsapp/whatsapp.generator.js';
 import { createPerson, type PersonModule } from './text/person/person.generator.js';
+import { createEmoji, type EmojiModule } from './text/emoji/emoji.generator.js';
 
 export interface FakerBr {
   lorem: LoremModule;
@@ -12,6 +13,7 @@ export interface FakerBr {
   support: SupportModule;
   whatsapp: WhatsappModule;
   person: PersonModule;
+  emoji: EmojiModule;
 }
 
 export function createFakerBr(randomSource?: RandomSource): FakerBr {
@@ -24,6 +26,7 @@ export function createFakerBr(randomSource?: RandomSource): FakerBr {
     support: createSupport(random, data.support),
     whatsapp: createWhatsapp(random, data.whatsapp),
     person: createPerson(random, data.person),
+    emoji: createEmoji(random, data.emoji),
   };
 }
 

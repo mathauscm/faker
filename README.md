@@ -41,6 +41,11 @@ fakerBr.whatsapp.casualMessage();        // "E aí, tudo bem? Vamos marcar aquel
 fakerBr.whatsapp.followupMessage();      // "Conseguiu ver aquilo que te mandei?"
 fakerBr.whatsapp.confirmationMessage();  // "Perfeito, tá combinado então!"
 
+// Emoji
+fakerBr.emoji.emoji();      // "🎯" (emoji aleatório de qualquer categoria)
+fakerBr.emoji.emojis(3);    // ["😍", "🐶", "🚀"] (N emojis aleatórios)
+fakerBr.emoji.random();     // "🌈" (alias para emoji())
+
 // Person — nomes e e-mails brasileiros
 fakerBr.person.firstName();           // Aleatório entre masculino e feminino
 fakerBr.person.firstName('male');     // "Lucas"
@@ -101,6 +106,16 @@ faker.lorem.sentence(); // Sempre retorna o mesmo resultado
 | `warningMessage()` | Mensagem de aviso |
 | `infoMessage()` | Mensagem informativa |
 
+### `emoji` — Emojis aleatórios por categoria
+
+| Método | Descrição |
+|---|---|
+| `emoji()` | Emoji aleatório de qualquer categoria |
+| `emojis(n)` | N emojis aleatórios |
+| `random()` | Alias para `emoji()` |
+
+Categorias disponíveis: smileys, gestures, hearts, animals, food, nature, objects, flags, activities, travel (~50 emojis cada).
+
 ### `whatsapp` — Mensagens casuais estilo WhatsApp
 
 | Método | Descrição |
@@ -118,6 +133,7 @@ Todos os dados ficam em arquivos JSON em `src/data/pt-br/`, facilitando edição
 - `marketing.json` — 64 headlines, 64 descrições, 63 CTAs
 - `support.json` — ~39 mensagens de cada tipo (success, error, warning, info)
 - `whatsapp.json` — 50 casuais, 44 followup, 44 confirmação
+- `emoji.json` — 500 emojis em 10 categorias (50 por categoria)
 
 ## Licença
 

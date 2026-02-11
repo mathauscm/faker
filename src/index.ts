@@ -5,3 +5,4 @@ export type { MarketingModule } from './text/marketing/marketing.generator.js';
 export type { SupportModule } from './text/support/support.generator.js';
 export type { WhatsappModule } from './text/whatsapp/whatsapp.generator.js';
 export type { PersonModule } from './text/person/person.generator.js';
+export type { EmojiModule } from './text/emoji/emoji.generator.js';
