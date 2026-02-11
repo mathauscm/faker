@@ -1,5 +1,7 @@
 export interface LoremData {
   words: string[];
+  shortSentences: string[];
+  longSentences: string[];
 }
 
 export interface MarketingData {

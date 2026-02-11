@@ -19,11 +19,10 @@ npm install @aldeia/faker-br
 ```typescript
 import { fakerBr } from '@aldeia/faker-br';
 
-// Lorem
-fakerBr.lorem.sentence();       // "Caminho forte maior ainda muito bonito lado escola."
-fakerBr.lorem.sentence(5);      // "Hoje livro forma igual nada."
-fakerBr.lorem.sentences(3);     // Três frases concatenadas
-fakerBr.lorem.paragraph();      // Parágrafo com 3-6 frases
+// Lorem — frases reais pré-escritas em PT-BR
+fakerBr.lorem.sentence();       // "O café da manhã estava pronto quando ela chegou."
+fakerBr.lorem.sentences(3);     // Três frases naturais concatenadas
+fakerBr.lorem.paragraph();      // Parágrafo com 3-6 frases reais
 fakerBr.lorem.paragraphs(2);    // Dois parágrafos separados por \n\n
 
 // Marketing
@@ -66,7 +65,7 @@ faker.lorem.sentence(); // Sempre retorna o mesmo resultado
 
 Todos os textos ficam em arquivos JSON em `src/data/pt-br/`, facilitando edição e contribuição:
 
-- `lorem.json` — ~380 palavras em português
+- `lorem.json` — ~380 palavras + 25 frases curtas + 25 frases longas em português
 - `marketing.json` — 30 headlines, 30 descrições, 30 CTAs
 - `support.json` — 20 mensagens de cada tipo (success, error, warning, info)
 - `whatsapp.json` — 25 casuais, 20 followup, 20 confirmação
