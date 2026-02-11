@@ -46,7 +46,7 @@ fakerBr.person.firstName();           // Aleatório entre masculino e feminino
 fakerBr.person.firstName('male');     // "Lucas"
 fakerBr.person.firstName('female');   // "Maria"
 fakerBr.person.lastName();            // "Oliveira"
-fakerBr.person.fullName();            // "Maria Silva Oliveira" (50% chance de sobrenome duplo)
+fakerBr.person.fullName();            // "Maria Silva Oliveira"
 fakerBr.person.fullName('male');      // "Lucas Ferreira"
 fakerBr.person.email();               // "lucas.ferreira@gmail.com"
 fakerBr.person.email('Ana', 'Costa'); // "ana.costa@uol.com.br"
@@ -71,7 +71,7 @@ faker.lorem.sentence(); // Sempre retorna o mesmo resultado
 |---|---|---|
 | `firstName()` | `gender?: 'male' \| 'female'` | Sem argumento sorteia entre masculino e feminino |
 | `lastName()` | — | Sobrenome aleatório |
-| `fullName()` | `gender?: 'male' \| 'female'` | Nome completo (50% de chance de sobrenome duplo) |
+| `fullName()` | `gender?: 'male' \| 'female'` | Nome completo |
 | `email()` | `firstName?: string, lastName?: string` | E-mail com domínios BR, remove acentos automaticamente |
 | `username()` | — | Nome + sobrenome + número, sem acentos |
 
@@ -119,20 +119,10 @@ Todos os dados ficam em arquivos JSON em `src/data/pt-br/`, facilitando edição
 - `support.json` — ~39 mensagens de cada tipo (success, error, warning, info)
 - `whatsapp.json` — 50 casuais, 44 followup, 44 confirmação
 
-## Contribuindo
-
-```bash
-# Instalar dependências
-npm install
-
-# Rodar testes
-npm test
-
-# Build
-npm run build
-```
-
-
 ## Licença
 
 [MIT](LICENSE)
+
+---
+
+Powered by [@mathauscm](https://github.com/mathauscm)

@@ -5,6 +5,18 @@
   "author": "mathausdev",
   "private": false,
   "license": "MIT",
+  "keywords": [
+    "faker",
+    "fake",
+    "data",
+    "generator",
+    "português",
+    "pt-br",
+    "brasil",
+    "brazilian",
+    "mock",
+    "test"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mathauscm/faker.git"
