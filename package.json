@@ -1,10 +1,22 @@
 {
   "name": "@aldeia/faker-br",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Gerador de textos aleatórios em PT-BR para Node.js",
   "author": "mathausdev",
   "private": false,
   "license": "MIT",
+  "keywords": [
+    "faker",
+    "fake",
+    "data",
+    "generator",
+    "português",
+    "pt-br",
+    "brasil",
+    "brazilian",
+    "mock",
+    "test"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mathauscm/faker.git"

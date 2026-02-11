@@ -12,15 +12,10 @@ describe('LoremGenerator', () => {
     expect(result).toMatch(/\.$/);
   });
 
-  it('should generate a sentence with specified word count', () => {
-    const result = lorem.sentence(5);
-    const words = result.replace('.', '').split(' ');
-    expect(words).toHaveLength(5);
-  });
-
-  it('should capitalize the first word', () => {
+  it('should return a pre-written sentence from the data', () => {
     const result = lorem.sentence();
-    expect(result[0]).toBe(result[0].toUpperCase());
+    const allSentences = [...data.lorem.shortSentences, ...data.lorem.longSentences];
+    expect(allSentences).toContain(result);
   });
 
   it('should generate multiple sentences', () => {

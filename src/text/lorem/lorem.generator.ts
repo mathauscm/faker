@@ -2,18 +2,18 @@ import type { Random } from '../../core/random.js';
 import type { LoremData } from '../../data/text-data.interface.js';
 
 export interface LoremModule {
-  sentence(wordCount?: number): string;
+  sentence(): string;
   sentences(count?: number): string;
   paragraph(sentenceCount?: number): string;
   paragraphs(count?: number): string;
 }
 
 export function createLorem(random: Random, data: LoremData): LoremModule {
-  function sentence(wordCount?: number): string {
-    const count = wordCount ?? random.int(5, 12);
-    const words = random.pickMany(data.words, count);
-    words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1);
-    return words.join(' ') + '.';
+  function sentence(): string {
+    const useShort = random.int(0, 1) === 0;
+    return useShort
+      ? random.pickOne(data.shortSentences)
+      : random.pickOne(data.longSentences);
   }
 
   function sentences(count?: number): string {
