@@ -25,7 +25,7 @@ export function createEmoji(random: Random, data: EmojiData): EmojiModule {
   }
 
   function emojis(count: number): string {
-    return random.pickMany(all, count).join('');
+    return random.pickMany(all, count).join(' ');
   }
 
   return { emoji, emojis };
