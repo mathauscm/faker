@@ -1,4 +1,4 @@
-# faker-br
+# @aldeia/faker-br
 
 Gerador de textos aleatórios em **PT-BR** para Node.js e NestJS.
 
@@ -7,7 +7,7 @@ Ideal para popular interfaces, prototipar telas, gerar seeds de banco de dados e
 ## Instalação
 
 ```bash
-npm install faker-br
+npm install @aldeia/faker-br
 ```
 
 ## Uso Standalone
@@ -15,7 +15,7 @@ npm install faker-br
 Funciona em qualquer projeto Node.js/TypeScript, sem dependência do NestJS.
 
 ```typescript
-import { fakerBr } from 'faker-br';
+import { fakerBr } from '@aldeia/faker-br';
 
 // Lorem
 fakerBr.lorem.sentence();       // "Caminho forte maior ainda muito bonito lado escola."
@@ -44,7 +44,7 @@ fakerBr.whatsapp.confirmationMessage();  // "Perfeito, tá combinado então!"
 ### Criando uma instância customizada
 
 ```typescript
-import { createFakerBr } from 'faker-br';
+import { createFakerBr } from '@aldeia/faker-br';
 
 // Com source de randomização customizado (útil para testes determinísticos)
 const faker = createFakerBr(() => 0.5);
@@ -57,7 +57,7 @@ faker.lorem.sentence(); // Sempre retorna o mesmo resultado
 
 ```typescript
 import { Module } from '@nestjs/common';
-import { FakerModule } from 'faker-br';
+import { FakerModule } from '@aldeia/faker-br';
 
 @Module({
   imports: [FakerModule.forRoot()],
@@ -71,7 +71,7 @@ O `FakerModule.forRoot()` registra o módulo como **global**, então o `FakerSer
 
 ```typescript
 import { Injectable } from '@nestjs/common';
-import { FakerService } from 'faker-br';
+import { FakerService } from '@aldeia/faker-br';
 
 @Injectable()
 export class SeedService {
