@@ -1,98 +1,187 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# faker-br
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Gerador de textos aleatórios em **PT-BR** para Node.js e NestJS.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Ideal para popular interfaces, prototipar telas, gerar seeds de banco de dados e testar aplicações com textos realistas em português.
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Project setup
+## Instalação
 
 ```bash
-$ npm install
+npm install faker-br
 ```
 
-## Compile and run the project
+## Uso Standalone
+
+Funciona em qualquer projeto Node.js/TypeScript, sem dependência do NestJS.
+
+```typescript
+import { fakerPtBR } from 'faker-br';
+
+// Lorem
+fakerPtBR.lorem.sentence();       // "Caminho forte maior ainda muito bonito lado escola."
+fakerPtBR.lorem.sentence(5);      // "Hoje livro forma igual nada."
+fakerPtBR.lorem.sentences(3);     // Três frases concatenadas
+fakerPtBR.lorem.paragraph();      // Parágrafo com 3-6 frases
+fakerPtBR.lorem.paragraphs(2);    // Dois parágrafos separados por \n\n
+
+// Marketing
+fakerPtBR.marketing.headline();      // "Transforme seus resultados com nossa solução inovadora"
+fakerPtBR.marketing.description();   // "Nossa plataforma oferece ferramentas completas..."
+fakerPtBR.marketing.callToAction();  // "Comece agora gratuitamente"
+
+// Suporte
+fakerPtBR.support.successMessage();  // "Operação realizada com sucesso!"
+fakerPtBR.support.errorMessage();    // "Ocorreu um erro inesperado. Tente novamente mais tarde."
+fakerPtBR.support.warningMessage();  // "Atenção: esta ação não pode ser desfeita."
+fakerPtBR.support.infoMessage();     // "Sua solicitação está sendo processada."
+
+// WhatsApp
+fakerPtBR.whatsapp.casualMessage();        // "E aí, tudo bem? Vamos marcar aquele café?"
+fakerPtBR.whatsapp.followupMessage();      // "Conseguiu ver aquilo que te mandei?"
+fakerPtBR.whatsapp.confirmationMessage();  // "Perfeito, tá combinado então!"
+```
+
+### Criando uma instância customizada
+
+```typescript
+import { createFakerPtBR } from 'faker-br';
+
+// Com source de randomização customizado (útil para testes determinísticos)
+const faker = createFakerPtBR(() => 0.5);
+faker.lorem.sentence(); // Sempre retorna o mesmo resultado
+```
+
+## Uso com NestJS
+
+### Configuração do módulo
+
+```typescript
+import { Module } from '@nestjs/common';
+import { FakerModule } from 'faker-br';
+
+@Module({
+  imports: [FakerModule.forRoot()],
+})
+export class AppModule {}
+```
+
+O `FakerModule.forRoot()` registra o módulo como **global**, então o `FakerService` fica disponível em toda a aplicação.
+
+### Injetando o FakerService
+
+```typescript
+import { Injectable } from '@nestjs/common';
+import { FakerService } from 'faker-br';
+
+@Injectable()
+export class SeedService {
+  constructor(private readonly faker: FakerService) {}
+
+  generateProduct() {
+    return {
+      name: this.faker.marketing.headline(),
+      description: this.faker.marketing.description(),
+      cta: this.faker.marketing.callToAction(),
+    };
+  }
+
+  generateNotification() {
+    return {
+      success: this.faker.support.successMessage(),
+      error: this.faker.support.errorMessage(),
+    };
+  }
+}
+```
+
+### Opções do módulo
+
+```typescript
+FakerModule.forRoot({
+  randomSource: () => Math.random(), // Fonte de randomização customizada
+})
+```
+
+## Módulos disponíveis
+
+| Módulo | Métodos | Descrição |
+|---|---|---|
+| `lorem` | `sentence()`, `sentences()`, `paragraph()`, `paragraphs()` | Texto placeholder em PT-BR |
+| `marketing` | `headline()`, `description()`, `callToAction()` | Textos de marketing e vendas |
+| `support` | `successMessage()`, `errorMessage()`, `warningMessage()`, `infoMessage()` | Mensagens de sistema/suporte |
+| `whatsapp` | `casualMessage()`, `followupMessage()`, `confirmationMessage()` | Mensagens casuais estilo WhatsApp |
+
+## Dados
+
+Todos os textos ficam em arquivos JSON em `src/data/pt-br/`, facilitando edição e contribuição:
+
+- `lorem.json` — 98 palavras em português
+- `marketing.json` — 10 headlines, 10 descrições, 10 CTAs
+- `support.json` — 5 mensagens de cada tipo (success, error, warning, info)
+- `whatsapp.json` — 8 casuais, 6 followup, 5 confirmação
+
+## Desenvolvimento
 
 ```bash
-# development
-$ npm run start
+# Instalar dependências
+npm install
 
-# watch mode
-$ npm run start:dev
+# Rodar em modo dev
+npm run start:dev
 
-# production mode
-$ npm run start:prod
+# Rodar testes unitários
+npm run test
+
+# Rodar testes e2e
+npm run test:e2e
+
+# Build
+npm run build
 ```
 
-## Run tests
+### Demo API
 
-```bash
-# unit tests
-$ npm run test
+A aplicação demo expõe os seguintes endpoints:
 
-# e2e tests
-$ npm run test:e2e
+| Endpoint | Descrição |
+|---|---|
+| `GET /lorem/sentence` | Frase aleatória |
+| `GET /lorem/paragraph` | Parágrafo aleatório |
+| `GET /marketing/headline` | Headline de marketing |
+| `GET /marketing/description` | Descrição de marketing |
+| `GET /marketing/cta` | Call-to-action |
+| `GET /support/:type` | Mensagem de suporte (success, error, warning, info) |
+| `GET /whatsapp/:type` | Mensagem WhatsApp (casual, followup, confirmation) |
 
-# test coverage
-$ npm run test:cov
+## Estrutura do projeto
+
+```
+src/
+  index.ts                  # Exports públicos da lib
+  faker.ts                  # Factory standalone + singleton
+  faker.module.ts           # NestJS dynamic module
+  core/
+    random.ts               # Classe Random (int, pickOne, pickMany)
+  data/
+    text-data.interface.ts  # Interfaces TypeScript
+    data-loader.ts          # Importa e agrupa os JSONs
+    pt-br/
+      lorem.json
+      marketing.json
+      support.json
+      whatsapp.json
+  text/
+    text.service.ts         # FakerService (NestJS injectable)
+    lorem/
+      lorem.generator.ts
+    marketing/
+      marketing.generator.ts
+    support/
+      support.generator.ts
+    whatsapp/
+      whatsapp.generator.ts
 ```
 
-## Deployment
+## Licença
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+[MIT](LICENSE)
