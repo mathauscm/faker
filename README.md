@@ -84,7 +84,6 @@ npm test
 npm run build
 ```
 
-O deploy para o npm é automático via GitHub Actions ao fazer merge na branch `main`.
 
 ## Licença
 
