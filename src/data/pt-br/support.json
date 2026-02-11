@@ -1,0 +1,30 @@
+{
+  "success": [
+    "Operação realizada com sucesso!",
+    "Seus dados foram salvos corretamente.",
+    "Cadastro concluído com sucesso!",
+    "Alterações aplicadas com sucesso.",
+    "Processo finalizado sem erros."
+  ],
+  "error": [
+    "Ocorreu um erro inesperado. Tente novamente mais tarde.",
+    "Não foi possível processar sua solicitação.",
+    "Erro ao conectar com o servidor. Verifique sua conexão.",
+    "Falha na autenticação. Verifique suas credenciais.",
+    "O serviço está temporariamente indisponível."
+  ],
+  "warning": [
+    "Atenção: esta ação não pode ser desfeita.",
+    "Sua sessão expira em 5 minutos.",
+    "Alguns campos obrigatórios não foram preenchidos.",
+    "O arquivo excede o tamanho máximo permitido.",
+    "Você atingiu o limite de tentativas. Aguarde alguns minutos."
+  ],
+  "info": [
+    "Sua solicitação está sendo processada.",
+    "Um e-mail de confirmação foi enviado para você.",
+    "Atualização disponível. Recomendamos instalar agora.",
+    "Manutenção programada para hoje às 22h.",
+    "Novos recursos foram adicionados ao sistema."
+  ]
+}

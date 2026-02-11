@@ -1,0 +1,27 @@
+{
+  "casual": [
+    "E aí, tudo bem? Vamos marcar aquele café?",
+    "Opa, beleza? Vi que você tá por aqui!",
+    "Fala, sumido! Como tão as coisas?",
+    "Ei, tudo certo? Precisava falar com você.",
+    "Oi! Quanto tempo, hein? Tudo tranquilo?",
+    "E aí, como foi o final de semana?",
+    "Opa! Tô passando pra dar um alô!",
+    "Fala, parceiro! Tudo na paz?"
+  ],
+  "followup": [
+    "Conseguiu ver aquilo que te mandei?",
+    "E aí, teve alguma novidade sobre o que conversamos?",
+    "Opa, só passando pra lembrar daquele assunto.",
+    "Ei, tudo bem? Alguma atualização sobre o projeto?",
+    "Oi! Só queria saber se precisa de mais alguma coisa.",
+    "E aí, como ficou aquela situação?"
+  ],
+  "confirmation": [
+    "Perfeito, tá combinado então!",
+    "Beleza, confirmado! Te vejo lá.",
+    "Show, pode deixar que eu resolvo.",
+    "Combinado! Qualquer coisa me avisa.",
+    "Fechado! Vou providenciar aqui."
+  ]
+}
