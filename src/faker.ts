@@ -13,12 +13,14 @@ export interface FakerBr {
   support: SupportModule;
   whatsapp: WhatsappModule;
   person: PersonModule;
-  emoji: EmojiModule;
+  emoji(): string;
+  emojis(count: number): string;
 }
 
 export function createFakerBr(randomSource?: RandomSource): FakerBr {
   const random = new Random(randomSource);
   const data = loadTextData();
+  const emojiModule = createEmoji(random, data.emoji);
 
   return {
     lorem: createLorem(random, data.lorem),
@@ -26,7 +28,8 @@ export function createFakerBr(randomSource?: RandomSource): FakerBr {
     support: createSupport(random, data.support),
     whatsapp: createWhatsapp(random, data.whatsapp),
     person: createPerson(random, data.person),
-    emoji: createEmoji(random, data.emoji),
+    emoji: emojiModule.emoji,
+    emojis: emojiModule.emojis,
   };
 }
 

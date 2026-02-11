@@ -3,8 +3,7 @@ import type { EmojiData } from '../../data/text-data.interface.js';
 
 export interface EmojiModule {
   emoji(): string;
-  emojis(count: number): string[];
-  random(): string;
+  emojis(count: number): string;
 }
 
 export function createEmoji(random: Random, data: EmojiData): EmojiModule {
@@ -25,13 +24,9 @@ export function createEmoji(random: Random, data: EmojiData): EmojiModule {
     return random.pickOne(all);
   }
 
-  function emojis(count: number): string[] {
-    return random.pickMany(all, count);
+  function emojis(count: number): string {
+    return random.pickMany(all, count).join('');
   }
 
-  function randomEmoji(): string {
-    return emoji();
-  }
-
-  return { emoji, emojis, random: randomEmoji };
+  return { emoji, emojis };
 }

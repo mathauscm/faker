@@ -42,9 +42,8 @@ fakerBr.whatsapp.followupMessage();      // "Conseguiu ver aquilo que te mandei?
 fakerBr.whatsapp.confirmationMessage();  // "Perfeito, tá combinado então!"
 
 // Emoji
-fakerBr.emoji.emoji();      // "🎯" (emoji aleatório de qualquer categoria)
-fakerBr.emoji.emojis(3);    // ["😍", "🐶", "🚀"] (N emojis aleatórios)
-fakerBr.emoji.random();     // "🌈" (alias para emoji())
+fakerBr.emoji();       // "🎯" (emoji aleatório de qualquer categoria)
+fakerBr.emojis(3);     // ["😍", "🐶", "🚀"] (N emojis aleatórios)
 
 // Person — nomes e e-mails brasileiros
 fakerBr.person.firstName();           // Aleatório entre masculino e feminino
@@ -106,15 +105,14 @@ faker.lorem.sentence(); // Sempre retorna o mesmo resultado
 | `warningMessage()` | Mensagem de aviso |
 | `infoMessage()` | Mensagem informativa |
 
-### `emoji` — Emojis aleatórios por categoria
+### `emoji` — Emojis aleatórios
 
 | Método | Descrição |
 |---|---|
 | `emoji()` | Emoji aleatório de qualquer categoria |
 | `emojis(n)` | N emojis aleatórios |
-| `random()` | Alias para `emoji()` |
 
-Categorias disponíveis: smileys, gestures, hearts, animals, food, nature, objects, flags, activities, travel (~50 emojis cada).
+Categorias internas: smileys, gestures, hearts, animals, food, nature, objects, flags, activities, travel (~50 emojis cada).
 
 ### `whatsapp` — Mensagens casuais estilo WhatsApp
 
