@@ -1,8 +1,8 @@
 {
-  "name": "faker-br",
+  "name": "@aldeia/faker-br",
   "version": "0.1.0",
   "description": "Gerador de textos aleatórios em PT-BR para Node.js e NestJS",
-  "author": "",
+  "author": "mathausdev",
   "private": false,
   "license": "MIT",
   "main": "dist/index.js",

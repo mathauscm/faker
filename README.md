@@ -15,39 +15,39 @@ npm install faker-br
 Funciona em qualquer projeto Node.js/TypeScript, sem dependência do NestJS.
 
 ```typescript
-import { fakerPtBR } from 'faker-br';
+import { fakerBr } from 'faker-br';
 
 // Lorem
-fakerPtBR.lorem.sentence();       // "Caminho forte maior ainda muito bonito lado escola."
-fakerPtBR.lorem.sentence(5);      // "Hoje livro forma igual nada."
-fakerPtBR.lorem.sentences(3);     // Três frases concatenadas
-fakerPtBR.lorem.paragraph();      // Parágrafo com 3-6 frases
-fakerPtBR.lorem.paragraphs(2);    // Dois parágrafos separados por \n\n
+fakerBr.lorem.sentence();       // "Caminho forte maior ainda muito bonito lado escola."
+fakerBr.lorem.sentence(5);      // "Hoje livro forma igual nada."
+fakerBr.lorem.sentences(3);     // Três frases concatenadas
+fakerBr.lorem.paragraph();      // Parágrafo com 3-6 frases
+fakerBr.lorem.paragraphs(2);    // Dois parágrafos separados por \n\n
 
 // Marketing
-fakerPtBR.marketing.headline();      // "Transforme seus resultados com nossa solução inovadora"
-fakerPtBR.marketing.description();   // "Nossa plataforma oferece ferramentas completas..."
-fakerPtBR.marketing.callToAction();  // "Comece agora gratuitamente"
+fakerBr.marketing.headline();      // "Transforme seus resultados com nossa solução inovadora"
+fakerBr.marketing.description();   // "Nossa plataforma oferece ferramentas completas..."
+fakerBr.marketing.callToAction();  // "Comece agora gratuitamente"
 
 // Suporte
-fakerPtBR.support.successMessage();  // "Operação realizada com sucesso!"
-fakerPtBR.support.errorMessage();    // "Ocorreu um erro inesperado. Tente novamente mais tarde."
-fakerPtBR.support.warningMessage();  // "Atenção: esta ação não pode ser desfeita."
-fakerPtBR.support.infoMessage();     // "Sua solicitação está sendo processada."
+fakerBr.support.successMessage();  // "Operação realizada com sucesso!"
+fakerBr.support.errorMessage();    // "Ocorreu um erro inesperado. Tente novamente mais tarde."
+fakerBr.support.warningMessage();  // "Atenção: esta ação não pode ser desfeita."
+fakerBr.support.infoMessage();     // "Sua solicitação está sendo processada."
 
 // WhatsApp
-fakerPtBR.whatsapp.casualMessage();        // "E aí, tudo bem? Vamos marcar aquele café?"
-fakerPtBR.whatsapp.followupMessage();      // "Conseguiu ver aquilo que te mandei?"
-fakerPtBR.whatsapp.confirmationMessage();  // "Perfeito, tá combinado então!"
+fakerBr.whatsapp.casualMessage();        // "E aí, tudo bem? Vamos marcar aquele café?"
+fakerBr.whatsapp.followupMessage();      // "Conseguiu ver aquilo que te mandei?"
+fakerBr.whatsapp.confirmationMessage();  // "Perfeito, tá combinado então!"
 ```
 
 ### Criando uma instância customizada
 
 ```typescript
-import { createFakerPtBR } from 'faker-br';
+import { createFakerBr } from 'faker-br';
 
 // Com source de randomização customizado (útil para testes determinísticos)
-const faker = createFakerPtBR(() => 0.5);
+const faker = createFakerBr(() => 0.5);
 faker.lorem.sentence(); // Sempre retorna o mesmo resultado
 ```
 
@@ -115,10 +115,10 @@ FakerModule.forRoot({
 
 Todos os textos ficam em arquivos JSON em `src/data/pt-br/`, facilitando edição e contribuição:
 
-- `lorem.json` — 98 palavras em português
-- `marketing.json` — 10 headlines, 10 descrições, 10 CTAs
-- `support.json` — 5 mensagens de cada tipo (success, error, warning, info)
-- `whatsapp.json` — 8 casuais, 6 followup, 5 confirmação
+- `lorem.json` — ~380 palavras em português
+- `marketing.json` — 30 headlines, 30 descrições, 30 CTAs
+- `support.json` — 20 mensagens de cada tipo (success, error, warning, info)
+- `whatsapp.json` — 25 casuais, 20 followup, 20 confirmação
 
 ## Desenvolvimento
 

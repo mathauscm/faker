@@ -1,9 +1,9 @@
-import { createFakerPtBR, fakerPtBR } from './faker.js';
+import { createFakerBr, fakerBr } from './faker.js';
 
-describe('FakerPtBR', () => {
-  describe('createFakerPtBR', () => {
+describe('FakerBr', () => {
+  describe('createFakerBr', () => {
     it('should create an instance with all modules', () => {
-      const faker = createFakerPtBR(() => 0.5);
+      const faker = createFakerBr(() => 0.5);
       expect(faker.lorem).toBeDefined();
       expect(faker.marketing).toBeDefined();
       expect(faker.support).toBeDefined();
@@ -11,19 +11,19 @@ describe('FakerPtBR', () => {
     });
 
     it('should produce deterministic results with fixed source', () => {
-      const faker1 = createFakerPtBR(() => 0.5);
-      const faker2 = createFakerPtBR(() => 0.5);
+      const faker1 = createFakerBr(() => 0.5);
+      const faker2 = createFakerBr(() => 0.5);
       expect(faker1.lorem.sentence(5)).toBe(faker2.lorem.sentence(5));
       expect(faker1.marketing.headline()).toBe(faker2.marketing.headline());
     });
   });
 
-  describe('fakerPtBR singleton', () => {
+  describe('fakerBr singleton', () => {
     it('should be a valid faker instance', () => {
-      expect(fakerPtBR.lorem.sentence()).toBeTruthy();
-      expect(fakerPtBR.marketing.headline()).toBeTruthy();
-      expect(fakerPtBR.support.successMessage()).toBeTruthy();
-      expect(fakerPtBR.whatsapp.casualMessage()).toBeTruthy();
+      expect(fakerBr.lorem.sentence()).toBeTruthy();
+      expect(fakerBr.marketing.headline()).toBeTruthy();
+      expect(fakerBr.support.successMessage()).toBeTruthy();
+      expect(fakerBr.whatsapp.casualMessage()).toBeTruthy();
     });
   });
 });

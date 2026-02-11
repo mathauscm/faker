@@ -5,14 +5,14 @@ import { createMarketing, type MarketingModule } from './text/marketing/marketin
 import { createSupport, type SupportModule } from './text/support/support.generator.js';
 import { createWhatsapp, type WhatsappModule } from './text/whatsapp/whatsapp.generator.js';
 
-export interface FakerPtBR {
+export interface FakerBr {
   lorem: LoremModule;
   marketing: MarketingModule;
   support: SupportModule;
   whatsapp: WhatsappModule;
 }
 
-export function createFakerPtBR(randomSource?: RandomSource): FakerPtBR {
+export function createFakerBr(randomSource?: RandomSource): FakerBr {
   const random = new Random(randomSource);
   const data = loadTextData();
 
@@ -24,4 +24,4 @@ export function createFakerPtBR(randomSource?: RandomSource): FakerPtBR {
   };
 }
 
-export const fakerPtBR = createFakerPtBR();
+export const fakerBr = createFakerBr();

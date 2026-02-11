@@ -1,5 +1,5 @@
 // Standalone
-export { fakerPtBR, createFakerPtBR, type FakerPtBR } from './faker.js';
+export { fakerBr, createFakerBr, type FakerBr } from './faker.js';
 
 // NestJS
 export { FakerModule } from './faker.module.js';
