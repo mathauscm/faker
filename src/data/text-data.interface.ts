@@ -23,9 +23,17 @@ export interface WhatsappData {
   confirmation: string[];
 }
 
+export interface PersonData {
+  maleFirstNames: string[];
+  femaleFirstNames: string[];
+  lastNames: string[];
+  emailDomains: string[];
+}
+
 export interface TextData {
   lorem: LoremData;
   marketing: MarketingData;
   support: SupportData;
   whatsapp: WhatsappData;
+  person: PersonData;
 }

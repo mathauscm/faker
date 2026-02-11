@@ -8,6 +8,7 @@ describe('FakerBr', () => {
       expect(faker.marketing).toBeDefined();
       expect(faker.support).toBeDefined();
       expect(faker.whatsapp).toBeDefined();
+      expect(faker.person).toBeDefined();
     });
 
     it('should produce deterministic results with fixed source', () => {
@@ -24,6 +25,7 @@ describe('FakerBr', () => {
       expect(fakerBr.marketing.headline()).toBeTruthy();
       expect(fakerBr.support.successMessage()).toBeTruthy();
       expect(fakerBr.whatsapp.casualMessage()).toBeTruthy();
+      expect(fakerBr.person.firstName()).toBeTruthy();
     });
   });
 });
