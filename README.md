@@ -1,8 +1,12 @@
 # @aldeia/faker-br
 
+[![npm version](https://img.shields.io/npm/v/@aldeia/faker-br.svg)](https://www.npmjs.com/package/@aldeia/faker-br)
+[![CI](https://github.com/mathauscm/faker/actions/workflows/deploy.yml/badge.svg)](https://github.com/mathauscm/faker/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Gerador de textos aleatórios em **PT-BR** para Node.js e TypeScript.
 
-Ideal para popular interfaces, prototipar telas, gerar seeds de banco de dados e testar aplicações com textos realistas em português.
+Zero dependências de produção. Ideal para popular interfaces, prototipar telas, gerar seeds de banco de dados e testar aplicações com textos realistas em português.
 
 ## Instalação
 
@@ -67,18 +71,20 @@ Todos os textos ficam em arquivos JSON em `src/data/pt-br/`, facilitando ediçã
 - `support.json` — 20 mensagens de cada tipo (success, error, warning, info)
 - `whatsapp.json` — 25 casuais, 20 followup, 20 confirmação
 
-## Desenvolvimento
+## Contribuindo
 
 ```bash
 # Instalar dependências
 npm install
 
-# Rodar testes unitários
-npm run test
+# Rodar testes
+npm test
 
 # Build
 npm run build
 ```
+
+O deploy para o npm é automático via GitHub Actions ao fazer merge na branch `main`.
 
 ## Licença
 
