@@ -1,6 +1,6 @@
 {
   "name": "@aldeia/faker-br",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Gerador de textos aleatórios em PT-BR para Node.js",
   "author": "mathausdev",
   "private": false,
